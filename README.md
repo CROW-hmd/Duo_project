@@ -20,6 +20,16 @@
 - قاعدة بيانات فيها RLS، والتحقق من صلاحيات الإدارة واحتساب المجموع وفحص المخزون يحدث على الخادم داخل RPC لضمان عدم تزوير الأسعار.
 - إرجاع المخزون عند إلغاء الطلب.
 
+## الربط الفعلي (20 نوفمبر 2026)
+
+- **تم إنشاء Supabase:** `Atr-Wa-Shir`، مشروع مستقل عن Veritasium.
+- لوحة المشروع: https://supabase.com/dashboard/project/vptkiphvjtdevoomrgss
+- **تم تطبيق** ملف `supabase/schema.sql` على قاعدة البيانات بنجاح، مع سياسات RLS للجداول الأربعة.
+- **تم تحديث** `config.js` بمفتاح Supabase العام المخصص للمتصفح، ولا يحتوي على أي مفتاح سري.
+- قاعدة المنتجات جديدة وفارغة حتى يضيف المشرف أول عطر.
+- لإنشاء أول حساب آدمن: سجّل حسابك من واجهة الزبون، أكّد بريدك الإلكتروني إذا كان مطلوبًا، ثم نفّذ استعلام ترقية الدور المبيّن أدناه في SQL Editor. لا تسمح لواجهة العميل بتعيين دور المشرف.
+- تذكّر تنزيل آخر نسخة من GitHub أو تنفيذ `git pull` على الفرع `atr-wa-shir-store` لتظهر إعدادات الاتصال الجديدة محليًا.
+
 ## تشغيل الواجهة
 
 1. حمّل الملفات وافتح المجلد في VS Code.
@@ -32,13 +42,13 @@
 
 ## تفعيل قاعدة البيانات والحسابات الحقيقية
 
-1. أنشئ مشروع **Supabase مستقلًا خاصًا بالمتجر**. لا تستخدم مشروعًا قائمًا لتطبيق آخر.
-2. من **SQL Editor** نفّذ الملف `supabase/schema.sql` مرة واحدة على المشروع الجديد.
-3. من **Project Settings → API** انسخ `Project URL` ومفتاح `Publishable` (أو Anon للاصدارات القديمة) إلى `config.js`:
+1. **تم مسبقًا:** إنشاء مشروع **Supabase مستقلًا خاصًا بالمتجر**.
+2. **تم مسبقًا:** تطبيق الملف `supabase/schema.sql` على المشروع الجديد.
+3. **تم مسبقًا:** ضبط `Project URL` ومفتاح `Publishable` في `config.js`:
    ```js
    window.ATR_CONFIG = {
-     supabaseUrl: 'https://YOUR_PROJECT.supabase.co',
-     supabasePublishableKey: 'sb_publishable_...'
+     supabaseUrl: 'https://vptkiphvjtdevoomrgss.supabase.co',
+     supabasePublishableKey: 'YOUR_PUBLIC_PUBLISHABLE_KEY'
    };
    ```
    ⚠️ ممنوع وضع `service_role` أو `secret key` هنا. المفتاح المنشور المقصود عام ولا يمنح صلاحيات إدارة بحد ذاته.
