@@ -1,0 +1,356 @@
+/*
+ * عُطرٌ وَ شِعر | OBSIDIAN & GOLD
+ * ثيم معدني ناعم، مستوحى من التصميم المرجعي.
+ * واجهة من دون أي ضجيج بصري أو صورة حبيبات (grain/noise).
+ * هذا الملف يُحمّل بعد styles.css للحفاظ على وظائف الموقع الأصلية.
+ */
+:root {
+  color-scheme: dark;
+  --ink: #000000;
+  --panel: #090909;
+  --panel2: #121212;
+  --line: rgba(212, 159, 64, .42);
+  --gold: #e9c173;
+  --gold2: #bc8a3d;
+  --cream: #fff9ef;
+  --muted: #c0b9ad;
+  --shadow: 0 24px 80px rgba(0,0,0,.78);
+  --radius: 24px;
+}
+html { background: #000; }
+body {
+  background: #000 !important;
+  color: var(--cream);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before { background: #000 !important; }
+/* Remove the old speckled film and bronze ambient clouds entirely. */
+.grain, .ambient { display: none !important; }
+::selection { color:#000; background: #e9c173; }
+:focus-visible { outline: 2px solid #ffe7a2; outline-offset: 4px; }
+
+/* The flowing corner ornament is an original SVG: no noise, no rasters. */
+#app { position:relative; isolation:isolate; }
+#app::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:0 0 auto;
+  height: min(1000px, 100vh);
+  pointer-events:none;
+  background: url('./assets/metallic-corners.svg') center top/100% 100% no-repeat;
+  opacity:.86;
+}
+.container { width: min(1270px, 88%); }
+.view { animation: velvet-in .42s cubic-bezier(.18,.7,.15,1) both; }
+@keyframes velvet-in { from {opacity:0;transform:translateY(9px)} to {opacity:1;transform:translateY(0)} }
+
+/* Jet-black satin header with a single polished gold hairline. */
+.site-header {
+  height: 95px;
+  background: rgba(0,0,0,.985);
+  border-bottom: 1px solid #b88a3e;
+  padding-inline: max(4.5vw, 24px);
+  box-shadow: 0 1px 0 #f9d88b33,0 8px 25px #000a;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+.site-header::after {
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  bottom:-2px;
+  left:34%;width:32%;height:3px;
+  background:linear-gradient(90deg,transparent,#7f4e17 18%,#e7af49 42%,#fff4c3 50%,#e7af49 58%,#7f4e17 82%,transparent);
+  box-shadow:0 0 12px #f4cb6d70;
+  opacity:.82;
+}
+.brand { gap: 15px; }
+.brand-mark {
+  font-size: 40px;
+  color:var(--gold);
+  text-shadow:0 0 20px #cc943f50;
+  filter:drop-shadow(0 1px 0 #754914);
+}
+.brand strong { font-size:33px;line-height:1.12;color: #fff9ed; }
+.brand small { font-size:11px;color:#f0d9aa;letter-spacing:.3px; }
+.main-nav { gap: clamp(23px,3vw,50px); }
+.main-nav a {
+  font-size:17px;
+  color:#faf3e6;
+  font-weight:700;
+  text-shadow:0 1px 2px #000;
+  transition: color .24s, text-shadow .24s;
+}
+.main-nav a:hover,.main-nav a.active { color:#f7d28d; text-shadow:0 0 15px #e5b85a48; }
+.nav-actions { gap:19px; }
+.icon-text {
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:#050505;
+  border:1px solid #cf9d4d;
+  border-radius:50px;
+  color:#f9f1e6;
+  padding:10px 20px;
+  font-size:14px;
+  font-weight:600;
+  box-shadow: inset 0 0 0 1px #25190c,0 1px 12px #ca9f3922;
+  transition:background .25s,border-color .25s,box-shadow .25s,transform .25s;
+}
+.icon-text::before { content:'♙';font-size:21px;line-height:1;color:#f0c777; }
+.icon-text:hover { background:#15100a;border-color:#ffe2a0;box-shadow:0 0 22px #b98d433a;transform:translateY(-1px); }
+.bag-button { font-size:15px;font-weight:700;gap:9px; }
+.bag-icon { font-size:26px; line-height:1; color:#f4ce79; }
+.bag-button b { width:26px;height:26px;font-size:13px;background:linear-gradient(140deg,#fff1c5,#dbab58);color:#080502; }
+
+/* Gold typography: restrained, crisp and exceptionally legible. */
+.eyebrow { color:#f3c779;font-size:14px;letter-spacing:0;font-weight:800; }
+.eyebrow:before { background:linear-gradient(90deg,#805c29,#e4b765);height:1px; }
+.page-heading { padding:58px 0 46px; }
+.page-heading .eyebrow {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:25px;
+  min-width:min(360px,94%);
+  color:#f1c275;
+  font-size:15px;
+}
+.page-heading .eyebrow::before,
+.page-heading .eyebrow::after {
+  content:""; display:block; width:110px; max-width:22vw; height:1px;
+  background:linear-gradient(90deg,transparent,#d9a34a,#d9a34a);
+  opacity:.82;
+}
+.page-heading .eyebrow::after { background:linear-gradient(90deg,#d9a34a,#d9a34a,transparent); }
+.page-heading h1 {
+  font:700 clamp(43px,4.5vw,68px)/1.32 'Amiri',Georgia,serif;
+  color:#fffaf2;
+  letter-spacing:-.5px;
+  margin:12px 0 6px;
+  text-shadow:0 2px 14px #000;
+}
+.page-heading p { color:#ebe1d3;font-size:17px;line-height:1.9; }
+.section h2,.section-head h2 {color:#fff9f0;}
+.section-head p {color:#d8ccbc;}
+
+/* The glossy black-and-gold signature card from the reference image. */
+.empty, .panel, .order-card {
+  position:relative;
+  border:1px solid rgba(226,171,77,.72);
+  border-radius:24px;
+  overflow:hidden;
+  background:
+    linear-gradient(131deg,transparent 0%,rgba(255,255,255,.045) 30%,rgba(255,255,255,.012) 39%,transparent 62%),
+    linear-gradient(161deg,#0b0b0b 1%,#171717 38%,#050505 72%,#0b0b0b 100%);
+  box-shadow:
+    inset 0 0 0 1px #a16e2c24,
+    inset 0 18px 45px #ffffff05,
+    0 22px 75px #0009,
+    0 0 0 1px #100b06;
+}
+.empty::before, .panel::before, .order-card::before {
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  top:0;left:22%;width:56%;height:2px;
+  background:linear-gradient(90deg,transparent,#9a662a 30%,#ffe4a0 50%,#9a662a 70%,transparent);
+  box-shadow:0 0 15px #f4bc6280;
+}
+.empty::after {
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  bottom:0;left:24%;width:52%;height:2px;
+  background:linear-gradient(90deg,transparent,#8f5a23 28%,#ffe4a0 50%,#8f5a23 72%,transparent);
+  box-shadow:0 0 15px #e0a95250;
+}
+.empty > *, .panel > *, .order-card > * { position:relative;z-index:1; }
+.empty {
+  min-height:385px;
+  padding:62px 32px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+  color:#f6ecdf;
+}
+.empty .symbol {
+  display:flex;align-items:center;justify-content:center;gap:26px;
+  font:700 54px/1 'Amiri',serif;
+  color:#f2c977;
+  margin:0 0 20px;
+  text-shadow:0 0 13px #b9883440;
+}
+.empty .symbol:before,.empty .symbol:after {
+  content:"";height:1px;width:110px;max-width:18vw;
+  background:linear-gradient(90deg,transparent,#bb8938);
+}
+.empty .symbol:after {background:linear-gradient(90deg,#bb8938,transparent)}
+.empty h3 {
+  font:700 clamp(29px,3vw,42px)/1.5 'Amiri',serif;
+  margin:3px 0 17px;
+  color:#fffaf1;
+  text-shadow:0 1px 13px #000a;
+}
+.empty p { font-size:16px;line-height:1.8;color:#f0e7da;margin-bottom:27px; }
+.panel { padding:27px; }
+.order-card {padding:23px; margin:15px 0;}
+.order-card,.order-card::before {border-radius:18px;}
+
+/* Buttons are liquid metallic gold, not flat bronze. */
+.btn, .square-button { transition:transform .25s,box-shadow .25s,background .25s,border-color .25s,color .25s; }
+.btn {border-radius:11px;min-height:51px;font-size:15px;padding:13px 29px;letter-spacing:0;}
+.btn:hover:not(:disabled) {transform:translateY(-2px)}
+.btn-primary {
+  border:1px solid #f5d78c;
+  background:linear-gradient(180deg,#ffe8a4 0%,#ecc46e 27%,#d3a34c 67%,#a97830 100%);
+  color:#100a03;
+  font-weight:800;
+  text-shadow:0 1px 0 #fff4d080;
+  box-shadow:inset 0 1px 1px #fff9d3cb,inset 0 -1px 3px #71441166,0 7px 24px #a572243b;
+}
+.btn-primary:hover:not(:disabled) {
+  background:linear-gradient(180deg,#fff1b9,#f7d786 28%,#dfb65f 68%,#af8439);
+  box-shadow:inset 0 1px 2px #fff9d3,0 8px 30px #daa84977;
+}
+.btn-outline,.btn-soft {
+  border:1px solid rgba(223,172,83,.66);
+  color:#f8e6c9;
+  background:linear-gradient(160deg,#131313,#030303);
+  box-shadow:inset 0 1px 0 #d9aa4d15;
+}
+.btn-outline:hover,.btn-soft:hover {border-color:#e9c47e;background:#1b150d;}
+.btn-danger {border-radius:10px;}
+.square-button {
+  border:1px solid #d7a34d;
+  border-radius:11px;
+  background:linear-gradient(140deg,#1d160b,#070707);
+  color:#edc778;
+}
+.square-button:hover {background:linear-gradient(160deg,#fce1a0,#c99745);color:#100800;box-shadow:0 5px 19px #d7a34d55;}
+
+/* Product gallery surfaces and poetic landing page. */
+.hero {min-height:675px;}
+.hero-copy h1 {color:#fffaf2;}
+.hero h1 em {color:#f1c576;text-shadow:0 0 25px #d0994e17;}
+.hero-sub {color:#e1d6c5;}
+.hero-halo {border-color:#d7ad5b6e;box-shadow:0 0 0 32px #d29c3410,0 0 0 72px #d29c3407,0 0 0 116px #d29c3404;}
+.hero-bottom {color:#bdb2a0;}
+.feature {
+  background:linear-gradient(165deg,#131313,#050505);
+  border:0;
+}
+.feature p {color:#c9bdac;}
+.features {border-color:#ab803c62;background:#b98b4850;border-radius:17px;overflow:hidden;box-shadow:0 12px 50px #0008;}
+.product-card {
+  background:linear-gradient(157deg,#161616,#050505);
+  border-color:#a67c3880;
+  border-radius:17px;
+  box-shadow:0 12px 38px #0007;
+  overflow:hidden;
+}
+.product-card:hover {border-color:#f5d184;box-shadow:0 15px 39px #000c,0 0 23px #bd8d3c21;}
+.product-image {background:radial-gradient(ellipse at 50% 43%,#302a20 0%,#131313 52%,#040404 100%);}
+.product-tag {background:#080808ef;border:1px solid #d4ac5f85;border-radius:9px;color:#f2cd81;}
+.product-details h3 {color:#fff8ec;}
+.product-details p {color:#c9c0b2;}
+.price {color:#f0c57b;}
+.price small {color:#d3c4af;}
+.story-banner {
+  border:1px solid #c5974b88;
+  border-radius:26px;
+  background:linear-gradient(140deg,#090909,#171717 48%,#050505);
+  box-shadow:inset 0 1px 0 #f3d48d22,0 19px 60px #0009;
+}
+.story-banner p {color:#e7c689;}
+
+/* Inputs, account screens, checkout, merchant workspace. */
+.input,.select,.textarea {
+  background:#070707;
+  border:1px solid #b4864291;
+  color:#fff9f0;
+  border-radius:10px;
+  box-shadow:inset 0 1px 3px #000;
+}
+.input:focus,.select:focus,.textarea:focus {border-color:#f5ce79;box-shadow:0 0 0 3px #cca05022;}
+.input::placeholder,.textarea::placeholder {color:#a89e91;}
+.auth-layout {
+  border:1px solid #b78c487a;
+  border-radius:25px;
+  background:linear-gradient(140deg,#111,#050505);
+  overflow:hidden;
+  box-shadow:0 22px 78px #000a;
+}
+.auth-art {
+  background:radial-gradient(ellipse at 25% 20%,#6b532445,transparent 58%),linear-gradient(125deg,#171717,#050505 70%);
+  border-inline-end:1px solid #ce9b4355;
+}
+.auth-art p {color:#e1d1b2;}
+.auth-modes {border-color:#b4864280;border-radius:13px;overflow:hidden;}
+.auth-modes button {border-radius:9px;}
+.auth-modes button.selected {color:#ffe2a3;background:linear-gradient(170deg,#66471e6b,#22170d);box-shadow:inset 0 0 0 1px #cd9d505e;}
+.field label {color:#f0dfc5;}
+.help,.hint,.auth-note,.auth-footer {color:#cec4b5;}
+.notice,.order-confirm {background:#bc923013;border:1px solid #c1954c88;border-radius:13px;color:#eee0c3;}
+.dashboard-menu button {background:#090909;border-color:#ad803f82;border-radius:12px;color:#f1e7d5;}
+.dashboard-menu button.selected,.dashboard-menu button:hover {background:#221a0c;border-color:#edbe68;color:#ffe0a0;}
+.stat {background:linear-gradient(130deg,#161616,#050505);border:1px solid #b4864277;border-radius:15px;}
+.stat span {color:#e5d7c5;}
+.stat strong {color:#f3cb7d;}
+.thumb {background:#15120e;border:1px solid #c89c507c;border-radius:10px;}
+.qty-control button {border:1px solid #c3985280;border-radius:7px;background:#13100a;}
+.status {border-color:#af804c5e;}
+.site-footer {
+  background:#020202;
+  border-top:1px solid #b88a3e;
+  box-shadow:0 -6px 35px #000;
+}
+.footer-brand {color:#f3c87c;}
+.footer-inner p {color:#c2b7a5;}
+.footer-bottom {color:#a99b85;}
+#toast {background:#0d0d0d;border:1px solid #e0b36a;border-radius:12px;}
+
+@media (max-width:950px) {
+  .container {width:90%;}
+  .site-header {padding-inline:3%;gap:12px;}
+  .brand strong {font-size:27px;}
+  .main-nav {gap:17px;}
+  .main-nav a {font-size:15px;}
+  .nav-actions {gap:11px;}
+  .icon-text {padding:8px 13px;font-size:12px;}
+  .page-heading h1 {font-size:clamp(39px,6vw,57px);}
+}
+@media (max-width:680px) {
+  .site-header {height:auto;min-height:79px;flex-wrap:wrap;padding:9px 14px 0;gap:7px;}
+  .site-header::after {left:25%;width:50%;}
+  .brand {gap:8px;}
+  .brand strong {font-size:24px;}
+  .brand small {font-size:9px;}
+  .brand-mark {font-size:28px;}
+  .main-nav {display:flex;order:3;width:100%;justify-content:center;gap:24px;padding:7px 0 10px;}
+  .main-nav a {font-size:12px;}
+  .nav-actions {gap:8px;}
+  .icon-text {font-size:11px;padding:7px 9px;gap:5px;}
+  .icon-text::before {font-size:16px;}
+  .bag-button {gap:4px;}
+  .bag-icon {font-size:19px;}
+  .bag-button b {width:21px;height:21px;font-size:11px;}
+  #app::before {height:720px;background-size:auto 100%;background-position:center;opacity:.54;}
+  .container {width:92%;}
+  .page-heading {padding:49px 0 30px;}
+  .page-heading .eyebrow {min-width:min(290px,94%);gap:12px;font-size:12px;}
+  .page-heading .eyebrow::before,.page-heading .eyebrow::after {width:58px;}
+  .page-heading h1 {font-size:clamp(34px,8vw,45px);}
+  .page-heading p {font-size:14px;}
+  .empty {min-height:325px;padding:40px 17px;border-radius:19px;}
+  .empty .symbol {font-size:42px;gap:15px;}
+  .empty .symbol:before,.empty .symbol:after {width:45px;}
+  .empty h3 {font-size:29px;}
+  .empty p {font-size:14px;}
+  .btn {font-size:13px;padding:12px 20px;min-height:46px;}
+  .product-card {border-radius:13px;}
+  .panel {padding:18px;border-radius:18px;}
+  .auth-layout {border-radius:19px;}
+  .auth-art {border-inline-end:0;border-bottom:1px solid #ce9b4355;}
+  .story-banner {border-radius:18px;}
+  .dashboard-menu button {font-size:12px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .view,.hero-visual,.bottle-wrap,.ambient {animation:none!important;}
+}
