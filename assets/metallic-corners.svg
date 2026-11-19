@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="ribbon-dark" x1="-80" y1="315" x2="600" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#050505"/><stop offset=".12" stop-color="#3b2a12"/><stop offset=".26" stop-color="#080808"/><stop offset=".44" stop-color="#665337"/><stop offset=".53" stop-color="#050505"/><stop offset=".74" stop-color="#1c160c"/><stop offset="1" stop-color="#000000"/></linearGradient>
+    <linearGradient id="ribbon-bottom" x1="1370" y1="1030" x2="1890" y2="650" gradientUnits="userSpaceOnUse"><stop stop-color="#000000"/><stop offset=".16" stop-color="#0b0906"/><stop offset=".28" stop-color="#5c4830"/><stop offset=".34" stop-color="#13110d"/><stop offset=".62" stop-color="#544027"/><stop offset=".82" stop-color="#080808"/><stop offset="1" stop-color="#000"/></linearGradient>
+    <linearGradient id="gold-edge" x1="-50" y1="270" x2="650" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#9b6424"/><stop offset=".2" stop-color="#fff2c0"/><stop offset=".38" stop-color="#cd9e53"/><stop offset=".6" stop-color="#ffebaf"/><stop offset=".83" stop-color="#8c581c"/><stop offset="1" stop-color="#201408"/></linearGradient>
+    <linearGradient id="gold-bottom" x1="1300" y1="990" x2="1900" y2="670" gradientUnits="userSpaceOnUse"><stop stop-color="#40210a"/><stop offset=".22" stop-color="#f3cb7e"/><stop offset=".42" stop-color="#7f4e18"/><stop offset=".64" stop-color="#fff0b6"/><stop offset=".83" stop-color="#cb9140"/><stop offset="1" stop-color="#3d260b"/></linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <!-- Upper-left three smooth satin ribbons; the black page remains pure #000. -->
+  <path d="M -135 450 C 55 215 184 184 360 104 C 497 42 606 2 699 -88" stroke="#c08c3d" stroke-opacity=".35" stroke-width="12" filter="url(#glow)"/>
+  <path d="M -129 450 C 55 216 179 193 360 110 C 505 44 604 8 695 -90" stroke="url(#ribbon-dark)" stroke-width="53" stroke-linecap="round"/>
+  <path d="M -109 422 C 81 216 182 179 358 105 C 498 47 604 -3 697 -93" stroke="url(#gold-edge)" stroke-width="3.7"/>
+  <path d="M -122 481 C 46 262 173 205 360 130 C 478 87 609 29 690 -63" stroke="#e0b971" stroke-opacity=".32" stroke-width="1"/>
+  <path d="M -85 310 C 95 157 235 135 370 62 C 468 11 560 -40 617 -110" stroke="url(#ribbon-dark)" stroke-width="33" stroke-opacity=".64"/>
+  <path d="M -93 306 C 94 151 229 133 366 59 C 466 8 564 -42 620 -112" stroke="url(#gold-edge)" stroke-opacity=".62" stroke-width="2"/>
+  <!-- Lower-right corner matching a reflected metallic silk fold. -->
+  <path d="M 1266 1124 C 1489 1059 1613 991 1750 855 C 1854 747 1884 668 2014 561" stroke="#c18b3d" stroke-opacity=".30" stroke-width="14" filter="url(#glow)"/>
+  <path d="M 1236 1147 C 1447 1102 1616 997 1758 863 C 1869 751 1896 662 2030 560" stroke="url(#ribbon-bottom)" stroke-opacity=".94" stroke-width="68"/>
+  <path d="M 1263 1125 C 1464 1067 1619 990 1751 854 C 1858 748 1889 666 2019 560" stroke="url(#gold-bottom)" stroke-width="4"/>
+  <path d="M 1230 1152 C 1465 1115 1644 996 1783 862 C 1891 747 1937 668 2029 587" stroke="#ba8a47" stroke-opacity=".40" stroke-width="1.3"/>
+  <path d="M 1405 1151 C 1597 1048 1753 973 1839 861 C 1939 744 1970 666 2043 625" stroke="url(#ribbon-bottom)" stroke-opacity=".82" stroke-width="38"/>
+  <path d="M 1403 1153 C 1593 1044 1757 968 1837 859 C 1936 739 1965 661 2044 620" stroke="url(#gold-bottom)" stroke-opacity=".55" stroke-width="2"/>
+</svg>
